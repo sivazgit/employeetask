@@ -1,0 +1,92 @@
+<div class="container">
+<div class="row mt-5">
+  <div class="col-lg-4 col-md-6"></div>
+  <div class="col-lg-4 col-md-6">
+    <form [formGroup]="employeeForm" action="" class="form-control" (ngSubmit)="onsubmit()">
+      <h1>Employee Form</h1>
+
+      <!-- name -->
+      <label for="">Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" placeholder="Name" class="" formControlName="name" [ngClass]="{'is-invalid':submit&&f.name.errors}" required>
+      <div *ngIf = 'submit&&f.name.errors'>
+        <div *ngIf = "f.name.errors" style="color: red; text-align: center;">Name is required</div>
+      </div>
+
+      <!-- address -->
+      <label for="">Address:</label>&nbsp;
+      <textarea id="" placeholder="Address" name="Address" rows="6" cols="30" class="mt-2" formControlName="address" [ngClass]="{'is-invalid':submit&&f.address.errors}" required></textarea>
+      <div *ngIf = 'submit&&f.address.errors'>
+        <div *ngIf = "f.address.errors" style="color: red; text-align: center;">Address is required</div>
+      </div>
+
+
+
+
+      <!-- date of birth -->
+      <label for="">Date of birth:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="date" id="dob" name="dob" class="mt-2" formControlName="dob" [ngClass]="{'is-invalid':submit&&f.dob.errors}" required>
+      
+
+  
+      <!-- Designation -->
+      <label for="role" class="mt-2" formControlName="role">Choose a Role:</label>&nbsp;&nbsp;&nbsp;
+<select name="role" id="role">
+  <option value="Admin">Admin</option>
+  <option value="Manager">Manager</option>
+  <option value="HR">HR</option>
+  <option value="Developer">Developer</option>
+</select> <br>
+
+
+
+
+<!-- phone number -->
+<label for="phone" class="mt-2">phone number:</label>&nbsp;&nbsp;
+<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" formControlName="phone" [ngClass]="{'is-invalid':submit&&f.phone.errors}" required> <br>
+<div *ngIf = "submit&&f.phone.errors">
+  <div *ngIf = "f.phone.errors['pattern']" style="color: red; text-align: center;">Invalid phone number</div>
+</div>
+
+
+
+
+<!-- Gender -->
+<label for="Gender" class="mt-2" formControlName="gender">Gender:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" id="male" name="gender" value="male" formControlName="male">
+<label for="male">Male</label>&nbsp;&nbsp;
+<input type="radio" id="female" name="gender" value="female" formControlName="female">
+<label for="male">Female</label><br>
+<button type="submit" class="btn btn-success">Submit</button>
+
+
+
+
+
+
+</form>
+  </div>
+  <div class="col-lg-4 col-md-6"></div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<router-outlet></router-outlet>
